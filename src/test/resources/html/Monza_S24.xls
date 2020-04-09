@@ -1,0 +1,415 @@
+
+        <table>
+	        <tr>
+		        <td colspan="8"><b>Monza (Italy), Season&nbsp;24</b></td>
+	        </tr>
+        </table>
+        <br><br>
+        <table>
+	        <tr>
+		        <td align="center"><b>Lap</b></td>
+		        <td align="center"><b>Lap time</b></td>
+		        <td align="center"><b>Pos</b></td>
+		        <td align="center"><b>Tyres</b></td>
+		        <td align="center"><b>Weather</b></td>
+		        <td align="center"><b>Temp (&#176;)</b></td>
+		        <td align="center"><b>Hum (%)</b></td>
+		        <td align="center"><b>Events</b></td>
+	        </tr>
+	        <tr>
+				<td align="center">0</td>
+				<td align="center">-</td>
+				<td align="center">21</td>
+				<td align="center">Soft</td>
+				<td align="center" >
+				Partially Cloudy
+				</td>
+				<td align="center">12</td>
+				<td align="center">13</td>
+				<td align="center">-</td>
+			</tr>
+        
+		<tr>
+			<td align="center">1</td>
+<td align="center">1:39.095</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">13</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">2</td>
+<td align="center">1:26.101</td><td align="center">21</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">13</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">3</td>
+<td align="center">1:26.315</td><td align="center">21</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">13</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">4</td>
+<td align="center">1:25.694</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">13</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">5</td>
+<td align="center">1:25.144</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">13</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">6</td>
+<td align="center">1:25.047</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">7</td>
+<td align="center">1:24.938</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">8</td>
+<td align="center">1:24.859</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">9</td>
+<td align="center">1:24.860</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">10</td>
+<td align="center">1:24.790</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">11</td>
+<td align="center">1:24.711</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">14</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">12</td>
+<td align="center">1:24.636</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">14</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">13</td>
+<td align="center">1:24.473</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">14</td>
+<td align="center">1:24.954</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">15</td>
+<td align="center">1:25.098</td><td align="center">17</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">16</td>
+<td align="center">1:24.342</td><td align="center">15</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">17</td>
+<td align="center">1:25.296</td><td align="center">14</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">18</td>
+<td align="center">1:24.258</td><td align="center">9</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">19</td>
+<td align="center">1:37.008</td><td align="center">6</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">12</td><td align="center">Pit</td>
+		</tr>
+
+		<tr>
+			<td align="center">20</td>
+<td align="center">2:00.956</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">11</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">21</td>
+<td align="center">1:25.452</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">10</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">22</td>
+<td align="center">1:25.363</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">23</td>
+<td align="center">1:25.630</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">24</td>
+<td align="center">1:25.433</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">25</td>
+<td align="center">1:24.933</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">26</td>
+<td align="center">1:25.669</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">27</td>
+<td align="center">1:30.242</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">Driver mistake</td>
+		</tr>
+
+		<tr>
+			<td align="center">28</td>
+<td align="center">1:24.684</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">29</td>
+<td align="center">1:24.638</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">30</td>
+<td align="center">1:24.657</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">31</td>
+<td align="center">1:24.559</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">32</td>
+<td align="center">1:24.474</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">33</td>
+<td align="center">1:24.413</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">34</td>
+<td align="center">1:24.395</td><td align="center">18</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">35</td>
+<td align="center">1:24.263</td><td align="center">16</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">16</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">36</td>
+<td align="center">1:24.237</td><td align="center">14</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">37</td>
+<td align="center">1:24.111</td><td align="center">11</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">38</td>
+<td align="center">1:37.124</td><td align="center">13</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">Pit</td>
+		</tr>
+
+		<tr>
+			<td align="center">39</td>
+<td align="center">2:02.144</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">40</td>
+<td align="center">1:25.210</td><td align="center">21</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">41</td>
+<td align="center">1:24.822</td><td align="center">21</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">42</td>
+<td align="center">1:24.807</td><td align="center">21</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">43</td>
+<td align="center">1:24.694</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">44</td>
+<td align="center">1:24.623</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">17</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">45</td>
+<td align="center">1:24.616</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">16</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">46</td>
+<td align="center">1:24.519</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">16</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">47</td>
+<td align="center">1:24.578</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">15</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">48</td>
+<td align="center">1:24.506</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">14</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">49</td>
+<td align="center">1:24.526</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">50</td>
+<td align="center">1:24.442</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">51</td>
+<td align="center">1:24.340</td><td align="center">22</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">13</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">52</td>
+<td align="center">1:24.306</td><td align="center">21</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+		<tr>
+			<td align="center">53</td>
+<td align="center">1:24.803</td><td align="center">20</td><td align="center">Soft</td><td align="center">Partially Cloudy</td><td align="center">12</td><td align="center">9</td><td align="center">-</td>
+		</tr>
+
+        </table>
+        <br><br>
+        <table>
+	        <tr ><td colspan="6" align="left"><b>Risks used:</b></td></tr>
+	        <tr >
+		        <td align="center"><b>Overtake</b></td>
+		        <td align="center"><b>Defend</b></td>
+		        <td align="center"><b>Clear &amp; dry</b></td>	        
+		        <td align="center"><b>Clear &amp; wet</b></td>
+		        <td align="center"><b>Malfunct</b></td>
+		        <td align="center"></td>
+	        </tr>
+	        <tr>
+		        <td align="center">40</td>
+		        <td align="center">19</td>
+		        <td align="center">79</td>       
+		        <td align="center">-</td>
+		        <td align="center">0</td>
+		        <td align="center"></td>
+	        </tr>
+        </table><br>
+        
+	    <table>
+		    <tr ><td colspan="6" align="left"><b>Setup used:</b></td></tr>
+		    <tr >
+			    <td align="center"><b>Front wing</b></td>
+			    <td align="center"><b>Rear wing</b></td>
+			    <td align="center"><b>Engine</b></td>
+			    <td align="center"><b>Brakes</b></td>
+			    <td align="center"><b>Gear</b></td>
+			    <td align="center"><b>Suspension</b></td>
+		    </tr>
+		    <tr>
+			    <td align="center">154</td>
+			    <td align="center">294</td>
+			    <td align="center">999</td>
+			    <td align="center">396</td>
+			    <td align="center">758</td>
+			    <td align="center">853</td>
+		    </tr>
+	    </table><br>
+	    <table>
+		    <tr>
+		        <td colspan="2" align="center"></td>
+			    <td align="center"><b>Cha</b></td>
+			    <td align="center"><b>Eng</b></td>
+			    <td align="center"><b>FWing</b></td>
+			    <td align="center"><b>RWing</b></td>
+			    <td align="center"><b>Underb</b></td>
+			    <td align="center"><b>Sidep</b></td>
+			    <td align="center"><b>Cool</b></td>
+			    <td align="center"><b>Gear</b></td>
+			    <td align="center"><b>Bra</b></td>
+			    <td align="center"><b>Susp</b></td>
+			    <td align="center"><b>Elec</b></td>
+		    </tr>
+		    <tr>
+		        <td colspan="2" align="left"><b>Car parts level:</b></td>
+			    <td align="center">5</td><td align="center">6</td><td align="center">6</td><td align="center">6</td><td align="center">6</td><td align="center">5</td><td align="center">5</td><td align="center">6</td><td align="center">5</td><td align="center">5</td><td align="center">6</td>
+		    </tr>
+		    <tr>
+		        <td colspan="2" align="left"><b>Car parts wear (at the start) (%):</b></td>
+			    <td align="center">0</td><td align="center">0</td><td align="center">17</td><td align="center">20</td><td align="center">20</td><td align="center">71</td><td align="center">67</td><td align="center">25</td><td align="center">30</td><td align="center">0</td><td align="center">86</td>
+		    </tr>
+		    <tr>
+		        <td colspan="2" align="left" nowrap><b>Car parts wear (at the finish) (%):</b></td>
+			    <td align="center">19</td><td align="center">38</td><td align="center">28</td><td align="center">28</td><td align="center">37</td><td align="center">86</td><td align="center">78</td><td align="center">53</td><td align="center">67</td><td align="center">19</td><td align="center">97</td>
+		    </tr>
+	    </table><br>
+        <table>
+	        <tr>
+		        <td><b>Start fuel (liters):</b></td>
+		        <td align="left">80</td>
+	        </tr>
+        </table><br>
+
+    <table>
+		<tr>
+		    <td align="center"><b>Pit</b></td>
+		    <td align="center"><b>Pitstop reason</b></td>
+		    <td align="center"><b>Tyres condition (%)</b></td>
+		    <td align="center"><b>Fuel left (%)</b></td>
+		    <td align="center"><b>Refilled to (liters)</b></td>
+		    <td align="center"><b>Pit time (sec)</b></td>
+	    </tr>
+
+		  <tr>
+		        <td align="center">Stop&nbsp;1&nbsp;(Lap&nbsp;19):</td>
+		        <td align="center">No more fuel was left</div></td>
+		        <td align="center">19</td>
+		        <td align="center">1</td>
+		        <td align="center">80 liters</td>
+		        <td align="center">22.239</td>
+	        </tr>
+
+		  <tr>
+		        <td align="center">Stop&nbsp;2&nbsp;(Lap&nbsp;38):</td>
+		        <td align="center">No more fuel was left</div></td>
+		        <td align="center">17</td>
+		        <td align="center">1</td>
+		        <td align="center">80 liters</td>
+		        <td align="center">23.528</td>
+	        </tr>
+
+		</table>
+
+        <br>
+        <table>
+	        <tr>
+		        <td nowrap><b>Tyres condition after finish (%):</b></td>
+		        <td align="left">35</td>
+	        </tr>
+	        <tr><td colspan="2"></td></tr>
+	        <tr>
+		        <td nowrap><b>Fuel left in the car after finish (liters):</b></td>
+		        <td align="left">17</td>
+	        </tr>
+        </table><br>
+        
