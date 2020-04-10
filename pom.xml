@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jlobato.gpro</groupId>
   <artifactId>gprsheetparser</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0.RELEASE</version>
   <name>gpr sheet parser</name>
   <url>http://maven.apache.org</url>
   <build>
@@ -12,7 +12,7 @@
 	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
-		<version>4.10</version>
+		<version>${junit.version}</version>
 		<scope>test</scope>
 	</dependency>
   	<dependency>
@@ -33,7 +33,7 @@
 	<dependency>
 		<groupId>org.apache.commons</groupId>
 		<artifactId>commons-lang3</artifactId>
-		<version>3.0</version>
+		<version>${org.apache.commons.version}</version>
 	</dependency>  	
 	<!-- JSOUP -->
 	<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
@@ -47,7 +47,7 @@
 	<dependency>
     	<groupId>org.jlobato.gpro</groupId>
     	<artifactId>gpro-utils</artifactId>
-    	<version>0.0.2.1</version>
+    	<version>${org.jlobato.gpro.version}</version>
 	</dependency>
 	  	
   </dependencies>
@@ -55,8 +55,11 @@
   	<!-- Version JDK 1.8 -->
 	<java.build.version>1.8</java.build.version>
 	<java.source.version>1.8</java.source.version>
+	<junit.version>4.10</junit.version>
 	<!-- Version POI -->
   	<org.apache.poi.version>3.11</org.apache.poi.version>
+  	<org.apache.commons.version>3.0</org.apache.commons.version>  	
+  	<org.jlobato.gpro.version>1.0.0.RELEASE</org.jlobato.gpro.version>
 	<!-- Version JSOUP -->
   	<org.jsoup.version>1.8.3</org.jsoup.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
