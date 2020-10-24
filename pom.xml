@@ -55,7 +55,7 @@
   	<!-- Version JDK 1.8 -->
 	<java.build.version>1.8</java.build.version>
 	<java.source.version>1.8</java.source.version>
-	<junit.version>4.10</junit.version>
+	<junit.version>4.13.1</junit.version>
 	<!-- Version POI -->
   	<org.apache.poi.version>3.11</org.apache.poi.version>
   	<org.apache.commons.version>3.0</org.apache.commons.version>  	
