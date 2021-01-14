@@ -57,7 +57,7 @@
 	<java.source.version>1.8</java.source.version>
 	<junit.version>4.13.1</junit.version>
 	<!-- Version POI -->
-  	<org.apache.poi.version>3.11</org.apache.poi.version>
+  	<org.apache.poi.version>4.1.2</org.apache.poi.version>
   	<org.apache.commons.version>3.0</org.apache.commons.version>  	
   	<org.jlobato.gpro.version>1.0.0.RELEASE</org.jlobato.gpro.version>
 	<!-- Version JSOUP -->
