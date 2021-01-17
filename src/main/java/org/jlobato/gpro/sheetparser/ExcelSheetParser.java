@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -66,11 +67,8 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 			Iterator<Row> rowIterator = reader.getRowIterator();
 			//La tratamos y generamos el modelo de carrera
 			parse(rowIterator);
-		} catch (Exception e) {
-			//Si ocurre alguna excepción, la lanzamos arriba
-			throw e;
 		} finally {
-			//Nos aseguramos de que todo queda cerrado
+			//Nos aseguramos de que queda cerrado
 			try { reader.close(); } catch(Exception e) {}
 		}
 
@@ -116,8 +114,8 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 			//Hacemos una copia porque cuando se intenta abrir como XSLX y falla
 			//Hay que poner el InputStream desde el principio y el método reset()
 			//no siempre está soportado
-			ByteArrayOutputStream out;
-			IOUtils.copy(is, out = new ByteArrayOutputStream());
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			IOUtils.copy(is, out);
 			inputBytes = out.toByteArray();
 			out.close();
 			
@@ -211,14 +209,13 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 			Cell celda = null;
 			
 			//Averiguamos en qué parte de la excel nos encontramos para ver cómo interpretamos la info
-			currentMode = getNextMode(currentMode, row.getRowNum(), 0, isNotBlank, lastRowIndex);				
+			currentMode = getNextMode(currentMode, row.getRowNum(), lastRowIndex);				
 
 			while (cellIterator.hasNext() && !endOfRow) {
 				celda = cellIterator.next();
-				isNotBlank = false;
 				
-				int type = celda.getCellType();
-				isNotBlank = type == Cell.CELL_TYPE_NUMERIC || type == Cell.CELL_TYPE_STRING || type == Cell.CELL_TYPE_BOOLEAN; 
+				CellType type = celda.getCellType();
+				isNotBlank = type.equals(CellType.NUMERIC) || type.equals(CellType.STRING) || type.equals(CellType.BOOLEAN); 
 				
 				if (isNotBlank) {
 					switch(currentMode) {
@@ -236,7 +233,7 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 						parseDriverEnergy(celda, type);
 						break;
 					case RACE_SETUP_USED_MODE:
-						if (type == Cell.CELL_TYPE_STRING && celda.getStringCellValue().startsWith(GPRORaceSheetParser.DRIVER_PREFIX)) {
+						if (type.equals(CellType.STRING) && celda.getStringCellValue().startsWith(GPRORaceSheetParser.DRIVER_PREFIX)) {
 							currentMode = DRIVER_ENERGY_MODE;
 							break;
 						}
@@ -258,13 +255,13 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 						parseEndWearInfo(celda, type);
 						break;
 					case RACE_STINTS_MODE:
-						parseStopsInfo(celda, type);
+						parseStopsInfo(celda);
 						break;
 					case RACE_START_FUEL_MODE:
 						parseStartFuel(celda, type);
 						break;
 					case RACE_TYRES_AFTER_RACE_MODE:
-						if (type == Cell.CELL_TYPE_STRING && celda.getStringCellValue().equals(GPRORaceSheetParser.TECHNICAL_PROBLEMS)) {
+						if (type.equals(CellType.STRING) && celda.getStringCellValue().equals(GPRORaceSheetParser.TECHNICAL_PROBLEMS)) {
 							currentMode = RACE_TECH_PROBLEMS_MODE;
 							break;
 						}
@@ -277,10 +274,9 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 					case RACE_FUEL_AFTER_RACE_MODE:
 						parseEndFuel(celda, type);
 						break;
+					default:
+						break;
 					}
-				}
-				else {
-					
 				}
 			} //End of columns
 			
@@ -298,6 +294,8 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 					//Si estamos en la lista de stints, podemos añadirlo a la lista de la carrera
 					if (techProblems) raceBuilder.addNewTechProblem();
 					break;
+				default:
+					break;
 			}
 			
 			lastRowIndex = row.getRowNum();		
@@ -310,21 +308,19 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseTechProblems(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_STRING) {
-			switch (celda.getColumnIndex()) {
-			case 0:
+	private void parseTechProblems(Cell celda, CellType type) {
+		if (type.equals(CellType.STRING)) {
+			if (celda.getColumnIndex() == 0) {
 				raceBuilder.setTechProblemLapInfo(celda.getStringCellValue().trim());
-				break;
-			case 1:
+			}
+			else if (celda.getColumnIndex() == 1) {
 				raceBuilder.setTechProblemDescriptionInfo(celda.getStringCellValue());
-				break;
 			}
 		}
 	}
 	
-	private void parseDriverEnergy(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_STRING) {
+	private void parseDriverEnergy(Cell celda, CellType type) {
+		if (type.equals(CellType.STRING)) {
 			raceBuilder.setDriverEnergyStart(GPROUtils.getDriverEnergyAtStart(celda.getStringCellValue()));
 			raceBuilder.setDriverEnergyEnd(GPROUtils.getDriverEnergyAtEnd(celda.getStringCellValue()));
 		}
@@ -352,7 +348,7 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param lastRowIndex 
 	 * @return
 	 */
-	private int getNextMode(int currentMode, int currentRow, int currentColumn, boolean isNotBlank, int lastRowIndex) {
+	private int getNextMode(int currentMode, int currentRow, int lastRowIndex) {
 		int result = currentMode;
 		
 		boolean isThereAGap = ((currentRow - lastRowIndex) > 1);
@@ -381,13 +377,9 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseEndFuel(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
-			switch (celda.getColumnIndex()) {
-			case 1:
-				raceBuilder.setEndFuel((int) celda.getNumericCellValue());
-				break;
-			}
+	private void parseEndFuel(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC) && (celda.getColumnIndex() == 1)) {
+			raceBuilder.setEndFuel((int) celda.getNumericCellValue());
 		}
 	}
 
@@ -396,13 +388,9 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseEndTyres(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
-			switch (celda.getColumnIndex()) {
-			case 1:
-				raceBuilder.setEndTyres((int) celda.getNumericCellValue());
-				break;
-			}
+	private void parseEndTyres(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC) && (celda.getColumnIndex() == 1)) {
+			raceBuilder.setEndTyres((int) celda.getNumericCellValue());
 		}
 	}
 
@@ -411,13 +399,9 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseStartFuel(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
-			switch (celda.getColumnIndex()) {
-			case 1:
-				raceBuilder.setStartFuel((int) celda.getNumericCellValue());
-				break;
-			}
+	private void parseStartFuel(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC) && (celda.getColumnIndex() == 1)) {
+			raceBuilder.setStartFuel((int) celda.getNumericCellValue());
 		}
 	}
 
@@ -426,8 +410,8 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseEndWearInfo(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
+	private void parseEndWearInfo(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC)) {
 			switch (celda.getColumnIndex()) {
 			case 2:
 				raceBuilder.setChassisEndWear((int) celda.getNumericCellValue());
@@ -462,6 +446,8 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 			case 12:
 				raceBuilder.setElectronicsEndWear((int) celda.getNumericCellValue());
 				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -471,41 +457,43 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseStartWearInfo(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
-			switch(celda.getColumnIndex()) {
+	private void parseStartWearInfo(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC)) {
+			switch (celda.getColumnIndex()) {
 			case 2:
-				raceBuilder.setChassisStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setChassisStartWear((int) celda.getNumericCellValue());
 				break;
 			case 3:
-				raceBuilder.setEngineStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setEngineStartWear((int) celda.getNumericCellValue());
 				break;
 			case 4:
-				raceBuilder.setFrontWingStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setFrontWingStartWear((int) celda.getNumericCellValue());
 				break;
 			case 5:
-				raceBuilder.setRearWingStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setRearWingStartWear((int) celda.getNumericCellValue());
 				break;
 			case 6:
-				raceBuilder.setUnderbodyStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setUnderbodyStartWear((int) celda.getNumericCellValue());
 				break;
 			case 7:
-				raceBuilder.setSidepodsStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setSidepodsStartWear((int) celda.getNumericCellValue());
 				break;
 			case 8:
-				raceBuilder.setCoolingStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setCoolingStartWear((int) celda.getNumericCellValue());
 				break;
 			case 9:
-				raceBuilder.setGearboxStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setGearboxStartWear((int) celda.getNumericCellValue());
 				break;
 			case 10:
-				raceBuilder.setBrakesStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setBrakesStartWear((int) celda.getNumericCellValue());
 				break;
 			case 11:
-				raceBuilder.setSuspensionStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setSuspensionStartWear((int) celda.getNumericCellValue());
 				break;
 			case 12:
-				raceBuilder.setElectronicsStartWear((int)celda.getNumericCellValue());
+				raceBuilder.setElectronicsStartWear((int) celda.getNumericCellValue());
+				break;
+			default:
 				break;
 			}
 		}
@@ -514,10 +502,10 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	/**
 	 * 
 	 * @param celda
-	 * @param type
+	 * @param type.equals(CellTy)
 	 */
-	private void parseCarPartsLevelInfo(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
+	private void parseCarPartsLevelInfo(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC)) {
 			switch(celda.getColumnIndex()) {
 			case 2:
 				raceBuilder.setChassisLevel((int)celda.getNumericCellValue());
@@ -552,6 +540,8 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 			case 12:
 				raceBuilder.setElectronicsLevel((int)celda.getNumericCellValue());
 				break;
+			default:
+				break;
 			}								
 			
 		}
@@ -562,28 +552,30 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseSetupInfo(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
-			switch(celda.getColumnIndex()) {
+	private void parseSetupInfo(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC)) {
+			switch (celda.getColumnIndex()) {
 			case 0:
-				raceBuilder.setFrontWingSetup((int)celda.getNumericCellValue());
+				raceBuilder.setFrontWingSetup((int) celda.getNumericCellValue());
 				break;
 			case 1:
-				raceBuilder.setRearWingSetup((int)celda.getNumericCellValue());
+				raceBuilder.setRearWingSetup((int) celda.getNumericCellValue());
 				break;
 			case 2:
-				raceBuilder.setEngineSetup((int)celda.getNumericCellValue());
+				raceBuilder.setEngineSetup((int) celda.getNumericCellValue());
 				break;
 			case 3:
-				raceBuilder.setBrakesSetup((int)celda.getNumericCellValue());
+				raceBuilder.setBrakesSetup((int) celda.getNumericCellValue());
 				break;
 			case 4:
-				raceBuilder.setGearSetup((int)celda.getNumericCellValue());
+				raceBuilder.setGearSetup((int) celda.getNumericCellValue());
 				break;
 			case 5:
-				raceBuilder.setSuspensionSetup((int)celda.getNumericCellValue());
+				raceBuilder.setSuspensionSetup((int) celda.getNumericCellValue());
 				break;
-			}								
+			default:
+				break;
+			}
 		}
 	}
 
@@ -592,34 +584,33 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseRisksInfo(Cell celda, int type) {
-		if (type == Cell.CELL_TYPE_NUMERIC) {
-			switch(celda.getColumnIndex()) {
+	private void parseRisksInfo(Cell celda, CellType type) {
+		if (type.equals(CellType.NUMERIC)) {
+			switch (celda.getColumnIndex()) {
 			case 0:
-				raceBuilder.setOvertakeRisks((int)celda.getNumericCellValue());
+				raceBuilder.setOvertakeRisks((int) celda.getNumericCellValue());
 				break;
 			case 1:
-				raceBuilder.setDefendRisks((int)celda.getNumericCellValue());
+				raceBuilder.setDefendRisks((int) celda.getNumericCellValue());
 				break;
 			case 2:
-				raceBuilder.setClearDryRisks((int)celda.getNumericCellValue());
+				raceBuilder.setClearDryRisks((int) celda.getNumericCellValue());
 				break;
 			case 3:
-				raceBuilder.setClearWetRisks((int)celda.getNumericCellValue());
+				raceBuilder.setClearWetRisks((int) celda.getNumericCellValue());
 				break;
 			case 4:
-				//Si llegamos a esta columna es que esta hoja tiene el campo clearWetRisks
+				// Si llegamos a esta columna es que esta hoja tiene el campo clearWetRisks
 				hasClearWetRisks = true;
-				raceBuilder.setMalfunctRisks((int)celda.getNumericCellValue());
+				raceBuilder.setMalfunctRisks((int) celda.getNumericCellValue());
+				break;
+			default:
 				break;
 			}
-		}
-		else if (type == Cell.CELL_TYPE_STRING && celda.getColumnIndex() == 3) {
-			if ("-".equals(celda.getStringCellValue())) {
-				//Significa que aunque tiene el campo clearWetRisks el valor no ha sido especificado
-				//Por tanto lo igualamos con los crearDryRisks que a estas alturas ya ha sido establecido
-				raceBuilder.setClearWetRisks(raceBuilder.getRaceDataSheetModel().getClearDryRisks());
-			}
+		} else if (type.equals(CellType.STRING) && (celda.getColumnIndex() == 3) && ("-".equals(celda.getStringCellValue()))) {
+			// Significa que aunque tiene el campo clearWetRisks el valor no ha sido especificado
+			// Por tanto lo igualamos con los crearDryRisks que a estas alturas ya ha sido establecido
+			raceBuilder.setClearWetRisks(raceBuilder.getRaceDataSheetModel().getClearDryRisks());
 		}
 	}
 
@@ -685,7 +676,7 @@ class ExcelSheetParser implements GPRORaceSheetParser {
 	 * @param celda
 	 * @param type
 	 */
-	private void parseStopsInfo(Cell celda, int type) {
+	private void parseStopsInfo(Cell celda) {
 		switch(celda.getColumnIndex()) {
 		case 0:
 			raceBuilder.setStopInfo(celda.getStringCellValue());
