@@ -61,7 +61,7 @@
   	<org.apache.commons.version>3.0</org.apache.commons.version>  	
   	<org.jlobato.gpro.version>1.0.0.RELEASE</org.jlobato.gpro.version>
 	<!-- Version JSOUP -->
-  	<org.jsoup.version>1.8.3</org.jsoup.version>
+  	<org.jsoup.version>1.14.2</org.jsoup.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	<maven.compiler.source>1.8</maven.compiler.source>
